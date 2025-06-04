@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Rutinas de Entrenamiento</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generador de Rutinas de Entrenamiento</h1>
+            <p>Personaliza tu plan de entrenamiento ideal</p>
+        </header>
+
+        <main>
+            <section id="form-section">
+                <h2>Datos Personales</h2>
+                <form id="trainingForm">
+                    <div class="form-group">
+                        <label for="age">Edad</label>
+                        <input type="number" id="age" name="age" required min="16" max="99" placeholder="Tu edad">
+                        <small>Entre 16 y 99 años</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Género</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Selecciona...</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight">Peso corporal (kg)</label>
+                        <input type="number" id="weight" name="weight" required min="30" max="300" step="0.1" placeholder="Tu peso en kg">
+                        <small>Entre 30 y 300 kg</small>
+                    </div>
+
+                    <h3>Máximo de peso que puedes levantar</h3>
+                    <div class="form-group">
+                        <label for="squat">Sentadilla</label>
+                        <input type="number" id="squat" name="squat" required min="0" step="0.5" placeholder="kg">
+                        <small>Ingresa 0 si no has realizado este ejercicio</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="bench">Press de banca</label>
+                        <input type="number" id="bench" name="bench" required min="0" step="0.5" placeholder="kg">
+                        <small>Ingresa 0 si no has realizado este ejercicio</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadlift">Peso muerto</label>
+                        <input type="number" id="deadlift" name="deadlift" required min="0" step="0.5" placeholder="kg">
+                        <small>Ingresa 0 si no has realizado este ejercicio</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Nivel de experiencia</label>
+                        <select id="experience" name="experience" required>
+                            <option value="">Selecciona...</option>
+                            <option value="principiante">Principiante</option>
+                            <option value="intermedio">Intermedio</option>
+                            <option value="avanzado">Avanzado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goal">Objetivo</label>
+                        <select id="goal" name="goal" required>
+                            <option value="">Selecciona...</option>
+                            <option value="hipertrofia">Hipertrofia</option>
+                            <option value="fuerza">Fuerza</option>
+                            <option value="resistencia">Resistencia</option>
+                            <option value="perdida">Pérdida de grasa</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="days">Días disponibles para entrenar</label>
+                        <select id="days" name="days" required>
+                            <option value="">Selecciona...</option>
+                            <option value="3">3 días</option>
+                            <option value="4">4 días</option>
+                            <option value="5">5 días</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">Tiempo disponible por sesión (minutos)</label>
+                        <input type="number" id="time" name="time" required min="30" max="180" placeholder="30-180 minutos">
+                        <small>Entre 30 y 180 minutos</small>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-dumbbell"></i> Generar Rutina
+                    </button>
+                </form>
+            </section>
+
+            <section id="results-section" class="hidden">
+                <h2>Tu Rutina Semanal</h2>
+                <div id="training-plan"></div>
+                <div class="actions">
+                    <button id="exportPDF" class="btn-secondary">
+                        <i class="fas fa-file-pdf"></i> Exportar a PDF
+                    </button>
+                    <button id="savePlan" class="btn-secondary">
+                        <i class="fas fa-save"></i> Guardar Rutina
+                    </button>
+                    <button id="sharePlan" class="btn-secondary">
+                        <i class="fas fa-share-alt"></i> Compartir
+                    </button>
+                </div>
+            </section>
+
+            <section id="saved-plans" class="hidden">
+                <h2>Tus Rutinas Guardadas</h2>
+                <div id="plans-list"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
