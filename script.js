@@ -44,6 +44,15 @@ class TrainingGenerator {
         });
     }
 
+    // Baraja un arreglo aleatoriamente
+    shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
     initializeDefaultExercises() {
         this.exercises = {
             "Sentadilla": {
@@ -145,14 +154,25 @@ class TrainingGenerator {
             <p><strong>Tiempo por sesión:</strong> ${timePerSession} minutos</p>
         `;
 
+        // Mezclar y preparar ejercicios
+        let exercisesPool = this.shuffleArray([...filteredExercises]);
+        const exercisesPerDay = Math.max(3, Math.ceil(exercisesPool.length / days));
+        let exerciseIndex = 0;
+
         for (let day = 1; day <= days; day++) {
             plan += `<div class="day">
                 <h4>Día ${day}</h4>
                 <div class="exercises-list">`;
 
-            // Seleccionar ejercicios para este día
-            const dayExercises = filteredExercises.slice(0, Math.ceil(filteredExercises.length / days));
-            filteredExercises = filteredExercises.slice(Math.ceil(filteredExercises.length / days));
+            const dayExercises = [];
+            for (let i = 0; i < exercisesPerDay; i++) {
+                if (exerciseIndex >= exercisesPool.length) {
+                    exerciseIndex = 0;
+                    exercisesPool = this.shuffleArray([...exercisesPool]);
+                }
+                dayExercises.push(exercisesPool[exerciseIndex]);
+                exerciseIndex++;
+            }
 
             dayExercises.forEach(exercise => {
                 const executionSteps = exercise.ejecucion ? exercise.ejecucion.map(step => `<li>${step}</li>`).join('') : '';
