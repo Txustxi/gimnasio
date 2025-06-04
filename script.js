@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return isValid;
     };
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         if (!validateForm()) return;
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.forEach((value, key) => data[key] = value);
 
         // Generar plan
-        const plan = generator.generatePlan(data);
+        const plan = await generator.generatePlan(data);
         trainingPlanDiv.innerHTML = plan;
         resultsSection.classList.remove('hidden');
 
