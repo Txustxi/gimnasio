@@ -14,7 +14,8 @@ class TrainingGenerator {
 
     async loadExercises() {
         try {
-            const response = await fetch('exercises.json');
+            const response = await fetch('./exercises.json');
+            if (!response.ok) throw new Error('HTTP ' + response.status);
             const data = await response.json();
             this.exercises = data.exercises;
             this.initializeExerciseCategories();
