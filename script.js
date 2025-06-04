@@ -118,7 +118,7 @@ class TrainingGenerator {
         // Filtrar ejercicios según nivel de experiencia
         const minDifficulty = experience === 'principiante' ? 1 : 
                             experience === 'intermedio' ? 2 : 3;
-        const filteredExercises = exercisesForGoal.filter(ex => ex.dificultad >= minDifficulty);
+        let filteredExercises = exercisesForGoal.filter(ex => ex.dificultad >= minDifficulty);
 
         if (filteredExercises.length === 0) {
             return 'Error: No hay ejercicios disponibles para tu nivel de experiencia';
@@ -202,19 +202,22 @@ class TrainingGenerator {
         return plan;
     }
 
-    savePlan(plan, data) {
+    savePlan(html, data) {
         const savedPlan = {
-            date: new Date().toISOString(),
-            experience: data.experience,
-            goal: data.goal,
-            days: data.days,
-            time: data.time,
-            plan: plan
+            id: Date.now(),
+            date: new Date().toLocaleString(),
+            data: data,
+            html: html
         };
 
         this.savedPlans.unshift(savedPlan);
         localStorage.setItem('trainingPlans', JSON.stringify(this.savedPlans));
         return savedPlan;
+    }
+
+    getSavedPlans() {
+        this.savedPlans = JSON.parse(localStorage.getItem('trainingPlans') || '[]');
+        return this.savedPlans;
     }
 
     loadSavedPlans() {
@@ -229,8 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsSection = document.getElementById('results-section');
     const trainingPlanDiv = document.getElementById('training-plan');
     const exportPDFBtn = document.getElementById('exportPDF');
+    const saveBtn = document.getElementById('savePlan');
     const shareBtn = document.getElementById('sharePlan');
-    const savedPlansList = document.getElementById('saved-plans');
     const savedPlansSection = document.getElementById('saved-plans');
     const plansList = document.getElementById('plans-list');
 
@@ -282,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Generar plan
         const plan = generator.generatePlan(data);
-        trainingPlan.innerHTML = plan;
+        trainingPlanDiv.innerHTML = plan;
         resultsSection.classList.remove('hidden');
 
         // Mostrar planes guardados
@@ -291,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Exportar a PDF
-    exportBtn.addEventListener('click', () => {
+    exportPDFBtn.addEventListener('click', () => {
         const element = document.getElementById('training-plan');
         const opt = {
             margin: 1,
@@ -310,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = {};
         formData.forEach((value, key) => data[key] = value);
 
-        const plan = trainingPlan.innerHTML;
+        const plan = trainingPlanDiv.innerHTML;
         generator.savePlan(plan, data);
         updatePlansList();
         alert('Rutina guardada exitosamente');
@@ -318,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Compartir plan
     shareBtn.addEventListener('click', () => {
-        const plan = trainingPlan.innerHTML;
+        const plan = trainingPlanDiv.innerHTML;
         const shareData = {
             title: 'Mi Rutina de Entrenamiento',
             text: '¡Comparto mi rutina de entrenamiento personalizada!',
@@ -356,10 +359,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Agregar evento para ver planes guardados
         document.querySelectorAll('.view-plan').forEach(button => {
             button.addEventListener('click', (e) => {
-                const planId = e.target.dataset.id;
-                const plan = generator.getSavedPlans().find(p => p.id === parseInt(planId));
+                const planId = parseInt(e.target.dataset.id, 10);
+                const plan = generator.getSavedPlans().find(p => p.id === planId);
                 if (plan) {
-                    trainingPlan.innerHTML = plan.html;
+                    trainingPlanDiv.innerHTML = plan.html;
                     resultsSection.classList.remove('hidden');
                 }
             });
