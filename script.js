@@ -217,8 +217,7 @@ class TrainingGenerator {
                 </ul>
             </div>
         `;
-
-        plan += `${recommendations}</div>`;
+        plan += recommendations;
         return plan;
     }
 
