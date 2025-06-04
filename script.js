@@ -100,6 +100,248 @@ class TrainingGenerator {
                     "Mantén los codos ligeramente por debajo de la barra durante el descenso.",
                     "Si eres principiante, comienza con un peso ligero o sin peso."
                 ]
+            },
+            "Peso Muerto": {
+                "nombre": "Peso Muerto",
+                "musculo": "Espalda",
+                "tipo": "Compuesto",
+                "dificultad": 4,
+                "descripcion": "Ejercicio compuesto que trabaja toda la espalda, glúteos, piernas y core.",
+                "ejecucion": [
+                    "1. Coloca la barra en el suelo y posiciona los pies a la anchura de los hombros.",
+                    "2. Agarra la barra con las manos separadas al ancho de los hombros.",
+                    "3. Mantén la espalda recta y la mirada al frente.",
+                    "4. Sujeta la barra con firmeza y extiende las rodillas y caderas simultáneamente.",
+                    "5. Levanta la barra manteniendo la espalda recta y los hombros hacia atrás.",
+                    "6. Mantén el peso cerca del cuerpo durante el ascenso.",
+                    "7. Baja el peso controladamente hasta que la barra toque el suelo.",
+                    "8. Mantén la espalda recta durante todo el movimiento."
+                ],
+                "consejos": [
+                    "Mantén la espalda recta y el pecho alto durante todo el movimiento.",
+                    "No redondees la espalda en ningún momento.",
+                    "Mantén el peso cerca del cuerpo durante todo el movimiento.",
+                    "Si eres principiante, comienza con un peso ligero y enfócate en la técnica."
+                ]
+            },
+            "Fondos": {
+                "nombre": "Fondos",
+                "musculo": "Tríceps",
+                "tipo": "Aislado",
+                "dificultad": 2,
+                "descripcion": "Ejercicio excelente para trabajar los tríceps y hombros.",
+                "ejecucion": [
+                    "1. Coloca las manos en las barras de los fondos, a la anchura de los hombros.",
+                    "2. Extiende los brazos y levanta el cuerpo.",
+                    "3. Mantén los codos ligeramente flexionados y la espalda recta.",
+                    "4. Baja el cuerpo controladamente flexionando los codos.",
+                    "5. Mantén los codos pegados al cuerpo durante el descenso.",
+                    "6. Baja hasta que los codos formen un ángulo de 90 grados aproximadamente.",
+                    "7. Sube de nuevo extendiendo los brazos completamente.",
+                    "8. Mantén el control durante todo el movimiento."
+                ],
+                "consejos": [
+                    "Mantén los codos pegados al cuerpo durante todo el movimiento.",
+                    "No te dejes caer, baja controladamente.",
+                    "Si eres principiante, comienza con asistencia o con un peso ligero.",
+                    "Mantén el tronco recto durante todo el movimiento."
+                ]
+            },
+            "Curl de Bíceps": {
+                "nombre": "Curl de Bíceps",
+                "musculo": "Bíceps",
+                "tipo": "Aislado",
+                "dificultad": 2,
+                "descripcion": "Ejercicio fundamental para trabajar los bíceps.",
+                "ejecucion": [
+                    "1. Coloca los pies a la anchura de los hombros y agarra la barra con las manos separadas al ancho de los hombros.",
+                    "2. Mantén los brazos extendidos y la espalda recta.",
+                    "3. Baja la barra controladamente hasta que los brazos estén completamente extendidos.",
+                    "4. Mantén los codos fijos durante todo el movimiento.",
+                    "5. Sube la barra hasta que los bíceps estén completamente contraídos.",
+                    "6. Mantén el control durante todo el movimiento."
+                ],
+                "consejos": [
+                    "Mantén los codos fijos durante todo el movimiento.",
+                    "No te balancees para levantar más peso.",
+                    "Mantén el control durante todo el movimiento.",
+                    "Si eres principiante, comienza con un peso ligero."
+                ]
+            },
+            "Pullover": {
+                "nombre": "Pullover",
+                "musculo": "Pecho",
+                "tipo": "Aislado",
+                "dificultad": 2,
+                "descripcion": "Ejercicio excelente para trabajar el pecho y espalda.",
+                "ejecucion": [
+                    "1. Acuéstate en el banco y agarra la barra con las manos separadas al ancho de los hombros.",
+                    "2. Extiende los brazos hacia atrás manteniendo los codos ligeramente flexionados.",
+                    "3. Baja la barra controladamente hasta que los brazos estén completamente extendidos.",
+                    "4. Mantén los codos fijos durante todo el movimiento.",
+                    "5. Sube la barra hasta que los brazos estén extendidos sobre el pecho.",
+                    "6. Mantén el control durante todo el movimiento."
+                ],
+                "consejos": [
+                    "Mantén los codos ligeramente flexionados durante todo el movimiento.",
+                    "No te balancees para levantar más peso.",
+                    "Mantén el control durante todo el descenso.",
+                    "Si eres principiante, comienza con un peso ligero."
+                ]
+            },
+            "Prensa de Piernas": {
+                "nombre": "Prensa de Piernas",
+                "musculo": "Piernas",
+                "tipo": "Aislado",
+                "dificultad": 2,
+                "descripcion": "Ejercicio excelente para trabajar cuádriceps y glúteos.",
+                "ejecucion": [
+                    "1. Siéntate en la máquina de prensa y coloca los pies en la plataforma.",
+                    "2. Mantén los pies a la anchura de los hombros.",
+                    "3. Mantén la espalda pegada al respaldo y los pies firmes.",
+                    "4. Flexiona las rodillas y baja la plataforma controladamente.",
+                    "5. Mantén los pies firmes en la plataforma durante todo el movimiento.",
+                    "6. Sube la plataforma empujando con los pies y extendiendo las rodillas.",
+                    "7. Mantén el control durante todo el movimiento."
+                ],
+                "consejos": [
+                    "Mantén los pies firmes en la plataforma durante todo el movimiento.",
+                    "No dejes que las rodillas se pasen de los dedos del pie.",
+                    "Mantén la espalda pegada al respaldo.",
+                    "Si eres principiante, comienza con un peso ligero."
+                ]
+            },
+            "Curl Martillo": {
+                "nombre": "Curl Martillo",
+                "musculo": "Bíceps",
+                "tipo": "Aislado",
+                "dificultad": 2,
+                "descripcion": "Ejercicio excelente para trabajar los bíceps y los músculos del antebrazo.",
+                "ejecucion": [
+                    "1. Coloca los pies a la anchura de los hombros y agarra las mancuernas con las palmas hacia dentro.",
+                    "2. Mantén los brazos extendidos y la espalda recta.",
+                    "3. Baja las mancuernas controladamente hasta que los brazos estén completamente extendidos.",
+                    "4. Mantén los codos fijos durante todo el movimiento.",
+                    "5. Sube las mancuernas hasta que los bíceps estén completamente contraídos.",
+                    "6. Mantén el control durante todo el movimiento."
+                ],
+                "consejos": [
+                    "Mantén los codos fijos durante todo el movimiento.",
+                    "No te balancees para levantar más peso.",
+                    "Mantén el control durante todo el movimiento.",
+                    "Si eres principiante, comienza con un peso ligero."
+                ]
+            },
+            "Front Squat": {
+                "nombre": "Front Squat",
+                "musculo": "Piernas",
+                "tipo": "Compuesto",
+                "dificultad": 4,
+                "descripcion": "Variante de la sentadilla que trabaja principalmente cuádriceps y core.",
+                "ejecucion": [
+                    "1. Coloca la barra en el soporte a la altura de los hombros.",
+                    "2. Posiciona los pies a la anchura de los hombros y agarra la barra con las manos separadas al ancho de los hombros.",
+                    "3. Retira la barra del soporte y da un paso atrás.",
+                    "4. Mantén la espalda recta y la mirada al frente.",
+                    "5. Flexiona las rodillas y baja el cuerpo como si fueras a sentarte en una silla.",
+                    "6. Mantén los pies firmes en el suelo y la espalda recta durante todo el movimiento.",
+                    "7. Baja hasta que las rodillas formen un ángulo de 90 grados aproximadamente.",
+                    "8. Sube de nuevo empujando con los pies y extendiendo las rodillas.",
+                    "9. Mantén el control durante todo el movimiento."
+                ],
+                "consejos": [
+                    "Mantén la espalda recta y el pecho alto durante todo el movimiento.",
+                    "No dejes que las rodillas se pasen de los dedos del pie.",
+                    "Si eres principiante, comienza sin peso o con un peso ligero.",
+                    "Enfócate en la técnica antes que en el peso."
+                ]
+            },
+            "Overhead Press": {
+                "nombre": "Overhead Press",
+                "musculo": "Hombros",
+                "tipo": "Compuesto",
+                "dificultad": 4,
+                "descripcion": "Ejercicio excelente para trabajar los hombros y tríceps.",
+                "ejecucion": [
+                    "1. Coloca la barra en el soporte a la altura de los hombros.",
+                    "2. Agarra la barra con las manos separadas al ancho de los hombros.",
+                    "3. Retira la barra del soporte y da un paso atrás.",
+                    "4. Mantén la espalda recta y la mirada al frente.",
+                    "5. Levanta la barra controladamente hasta que los brazos estén completamente extendidos.",
+                    "6. Mantén los codos ligeramente flexionados durante el ascenso.",
+                    "7. Baja la barra controladamente hasta que toque suavemente el pecho.",
+                    "8. Mantén el control durante todo el movimiento."
+                ],
+                "consejos": [
+                    "Mantén la espalda recta y el pecho alto durante todo el movimiento.",
+                    "No te balancees para levantar más peso.",
+                    "Mantén los codos ligeramente flexionados durante el ascenso.",
+                    "Si eres principiante, comienza con un peso ligero."
+                ]
+            },
+            "Burpees": {
+                "nombre": "Burpees",
+                "musculo": "Completo",
+                "tipo": "Cardio",
+                "dificultad": 3,
+                "descripcion": "Ejercicio de alta intensidad que trabaja todo el cuerpo.",
+                "ejecucion": [
+                    "1. Inicia en posición de pie.",
+                    "2. Agáchate y coloca las manos en el suelo.",
+                    "3. Salta las piernas hacia atrás entrando en posición de flexión.",
+                    "4. Realiza una flexión.",
+                    "5. Salta las piernas hacia adelante.",
+                    "6. Salta hacia arriba extendiendo los brazos.",
+                    "7. Aterrizar suavemente y repetir el movimiento."
+                ],
+                "consejos": [
+                    "Mantén el control durante todo el movimiento.",
+                    "Si eres principiante, puedes omitir el salto inicial.",
+                    "Mantén el core activo durante todo el movimiento.",
+                    "Enfócate en la técnica antes que en la velocidad."
+                ]
+            },
+            "Mountain Climbers": {
+                "nombre": "Mountain Climbers",
+                "musculo": "Completo",
+                "tipo": "Cardio",
+                "dificultad": 3,
+                "descripcion": "Ejercicio de alta intensidad que trabaja todo el cuerpo.",
+                "ejecucion": [
+                    "1. Inicia en posición de flexión.",
+                    "2. Mantén la espalda recta y los brazos extendidos.",
+                    "3. Alterna las piernas rápidamente como si estuvieras corriendo.",
+                    "4. Mantén el core activo durante todo el movimiento.",
+                    "5. Mantén una cadencia constante.",
+                    "6. Mantén el control durante todo el movimiento."
+                ],
+                "consejos": [
+                    "Mantén la espalda recta durante todo el movimiento.",
+                    "Si eres principiante, puedes empezar con un ritmo más lento.",
+                    "Mantén el core activo durante todo el movimiento.",
+                    "Enfócate en la técnica antes que en la velocidad."
+                ]
+            },
+            "Jumping Jacks": {
+                "nombre": "Jumping Jacks",
+                "musculo": "Completo",
+                "tipo": "Cardio",
+                "dificultad": 2,
+                "descripcion": "Ejercicio de calentamiento y cardio básico.",
+                "ejecucion": [
+                    "1. Inicia en posición de pie con los brazos a los lados.",
+                    "2. Salta y separa los pies mientras elevas los brazos.",
+                    "3. Salta y junta los pies mientras bajas los brazos.",
+                    "4. Mantén el core activo durante todo el movimiento.",
+                    "5. Mantén una cadencia constante.",
+                    "6. Mantén el control durante todo el movimiento."
+                ],
+                "consejos": [
+                    "Mantén la espalda recta durante todo el movimiento.",
+                    "Si eres principiante, puedes empezar sin saltar.",
+                    "Mantén el core activo durante todo el movimiento.",
+                    "Enfócate en la técnica antes que en la velocidad."
+                ]
             }
         };
         this.initializeExerciseCategories();
@@ -156,12 +398,19 @@ class TrainingGenerator {
 
         // Mezclar y preparar ejercicios
         let exercisesPool = this.shuffleArray([...filteredExercises]);
-        const exercisesPerDay = Math.max(3, Math.ceil(exercisesPool.length / days));
+
         let exerciseIndex = 0;
 
         for (let day = 1; day <= days; day++) {
-            plan += `<div class="day">
+            plan += `<div class="training-day">
                 <h4>Día ${day}</h4>
+                <div class="warmup">
+                    <h5>Calentamiento</h5>
+                    <ul>
+                        <li>5-10 minutos de cardio ligero</li>
+                        <li>Movilidad articular y activaciones</li>
+                    </ul>
+                </div>
                 <div class="exercises-list">`;
 
             const dayExercises = [];
@@ -200,6 +449,13 @@ class TrainingGenerator {
             });
 
             plan += `</div>
+                <div class="cooldown">
+                    <h5>Vuelta a la calma</h5>
+                    <ul>
+                        <li>Estiramientos estáticos 5-10 minutos</li>
+                        <li>Respiración controlada</li>
+                    </ul>
+                </div>
             </div>`;
         }
 
