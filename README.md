@@ -10,4 +10,6 @@ Este proyecto permite crear planes de entrenamiento personalizados de forma senc
 4. Puedes guardar la rutina, exportarla a PDF o compartirla desde los botones disponibles.
 5. Las rutinas guardadas se muestran en la sección *Tus Rutinas Guardadas* y puedes consultarlas cuando quieras.
 
+Cada día generado incluye una breve propuesta de calentamiento y vuelta a la calma para facilitar tu sesión.
+
 Las rutinas y datos se almacenan localmente en el navegador mediante `localStorage`.
