@@ -398,7 +398,7 @@ class TrainingGenerator {
 
         // Mezclar y preparar ejercicios
         let exercisesPool = this.shuffleArray([...filteredExercises]);
-        const exercisesPerDay = Math.max(5, Math.ceil(exercisesPool.length / days));
+
         let exerciseIndex = 0;
 
         for (let day = 1; day <= days; day++) {
