@@ -166,6 +166,19 @@ small {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+.warmup, .cooldown {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #fffbe6;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.warmup h5, .cooldown h5 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
 .exercise h5 {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
