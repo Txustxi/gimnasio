@@ -382,6 +382,7 @@ class TrainingGenerator {
         const sets = experience === 'principiante' ? 3 :
                      experience === 'intermedio' ? 4 : 5;
 
+<<<<<<< HEAD
         const reps = goal === 'fuerza' ? 3 :
                      goal === 'hipertrofia' ? 8 :
                      goal === 'resistencia' ? 12 : 15;
@@ -399,6 +400,16 @@ class TrainingGenerator {
         let exerciseIndex = 0;
 
         // Construir HTML del plan
+=======
+        const rest = goal === 'fuerza' ? '3-4 minutos' :
+                    goal === 'hipertrofia' ? '2-3 minutos' :
+                    '1-2 minutos';
+
+        // Cantidad fija de ejercicios por día
+        const exercisesPerDay = 8;
+
+        // Distribuir ejercicios por días
+>>>>>>> 8a863a0d9c5cc9ec0a0df7b918b8f499b682e9fe
         let plan = `<div class="training-plan">
             <h3>Tu Rutina Semanal</h3>
             <p><strong>Nivel de experiencia:</strong> ${experience}</p>
@@ -420,13 +431,18 @@ class TrainingGenerator {
                 <div class="exercises-list">`;
 
             const dayExercises = [];
-            for (let i = 0; i < exercisesPerDay; i++) {
+            while (dayExercises.length < exercisesPerDay) {
                 if (exerciseIndex >= exercisesPool.length) {
                     exerciseIndex = 0;
-                    exercisesPool = this.shuffleArray([...exercisesPool]);
+                    exercisesPool = this.shuffleArray([...filteredExercises]);
                 }
-                dayExercises.push(exercisesPool[exerciseIndex]);
+
+                const candidate = exercisesPool[exerciseIndex];
                 exerciseIndex++;
+
+                if (!dayExercises.some(ex => ex.nombre === candidate.nombre)) {
+                    dayExercises.push(candidate);
+                }
             }
 
             dayExercises.forEach(exercise => {
