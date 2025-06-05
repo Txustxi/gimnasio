@@ -384,9 +384,12 @@ class TrainingGenerator {
                     goal === 'hipertrofia' ? 8 : 
                     goal === 'resistencia' ? 12 : 15;
 
-        const rest = goal === 'fuerza' ? '3-4 minutos' : 
-                    goal === 'hipertrofia' ? '2-3 minutos' : 
+        const rest = goal === 'fuerza' ? '3-4 minutos' :
+                    goal === 'hipertrofia' ? '2-3 minutos' :
                     '1-2 minutos';
+
+        // Cantidad fija de ejercicios por día
+        const exercisesPerDay = 8;
 
         // Distribuir ejercicios por días
         let plan = `<div class="training-plan">
@@ -415,13 +418,18 @@ class TrainingGenerator {
                 <div class="exercises-list">`;
 
             const dayExercises = [];
-            for (let i = 0; i < exercisesPerDay; i++) {
+            while (dayExercises.length < exercisesPerDay) {
                 if (exerciseIndex >= exercisesPool.length) {
                     exerciseIndex = 0;
-                    exercisesPool = this.shuffleArray([...exercisesPool]);
+                    exercisesPool = this.shuffleArray([...filteredExercises]);
                 }
-                dayExercises.push(exercisesPool[exerciseIndex]);
+
+                const candidate = exercisesPool[exerciseIndex];
                 exerciseIndex++;
+
+                if (!dayExercises.some(ex => ex.nombre === candidate.nombre)) {
+                    dayExercises.push(candidate);
+                }
             }
 
             dayExercises.forEach(exercise => {
