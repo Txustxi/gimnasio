@@ -1,3 +1,5 @@
+// script.js (versión corregida)
+
 // Clase para manejar la generación de rutinas
 class TrainingGenerator {
     constructor() {
@@ -33,7 +35,7 @@ class TrainingGenerator {
                 this.exerciseCategories.hipertrofia.push(exercise);
                 this.exerciseCategories.fuerza.push(exercise);
             }
-            
+
             if (exercise.tipo === 'Aislado') {
                 this.exerciseCategories.hipertrofia.push(exercise);
             }
@@ -360,7 +362,7 @@ class TrainingGenerator {
         const experience = data.experience;
         const days = parseInt(data.days);
         const timePerSession = parseInt(data.time);
-        
+
         // Obtener ejercicios para el objetivo seleccionado
         const exercisesForGoal = this.exerciseCategories[goal];
         if (!exercisesForGoal || exercisesForGoal.length === 0) {
@@ -368,8 +370,8 @@ class TrainingGenerator {
         }
 
         // Filtrar ejercicios según nivel de experiencia
-        const minDifficulty = experience === 'principiante' ? 1 : 
-                            experience === 'intermedio' ? 2 : 3;
+        const minDifficulty = experience === 'principiante' ? 1 :
+                              experience === 'intermedio' ? 2 : 3;
         let filteredExercises = exercisesForGoal.filter(ex => ex.dificultad >= minDifficulty);
 
         if (filteredExercises.length === 0) {
@@ -377,18 +379,26 @@ class TrainingGenerator {
         }
 
         // Calcular series, repeticiones y descansos basados en objetivo
-        const sets = experience === 'principiante' ? 3 : 
-                    experience === 'intermedio' ? 4 : 5;
-        
-        const reps = goal === 'fuerza' ? 3 : 
-                    goal === 'hipertrofia' ? 8 : 
-                    goal === 'resistencia' ? 12 : 15;
+        const sets = experience === 'principiante' ? 3 :
+                     experience === 'intermedio' ? 4 : 5;
 
-        const rest = goal === 'fuerza' ? '3-4 minutos' : 
-                    goal === 'hipertrofia' ? '2-3 minutos' : 
-                    '1-2 minutos';
+        const reps = goal === 'fuerza' ? 3 :
+                     goal === 'hipertrofia' ? 8 :
+                     goal === 'resistencia' ? 12 : 15;
 
-        // Distribuir ejercicios por días
+        const rest = goal === 'fuerza' ? '3-4 minutos' :
+                     goal === 'hipertrofia' ? '2-3 minutos' : '1-2 minutos';
+
+        // Calcular cuántos ejercicios incluir por día
+        // Suponemos que cada ejercicio (series + descanso) ocupa aproximadamente 10 minutos
+        // Ajustamos para que haya al menos 1 ejercicio por día
+        const exercisesPerDay = Math.max(1, Math.floor(timePerSession / 10));
+
+        // Mezclar y preparar ejercicios
+        let exercisesPool = this.shuffleArray([...filteredExercises]);
+        let exerciseIndex = 0;
+
+        // Construir HTML del plan
         let plan = `<div class="training-plan">
             <h3>Tu Rutina Semanal</h3>
             <p><strong>Nivel de experiencia:</strong> ${experience}</p>
@@ -396,11 +406,6 @@ class TrainingGenerator {
             <p><strong>Días de entrenamiento:</strong> ${days}</p>
             <p><strong>Tiempo por sesión:</strong> ${timePerSession} minutos</p>
         `;
-
-        // Mezclar y preparar ejercicios
-        let exercisesPool = this.shuffleArray([...filteredExercises]);
-
-        let exerciseIndex = 0;
 
         for (let day = 1; day <= days; day++) {
             plan += `<div class="training-day">
@@ -425,8 +430,12 @@ class TrainingGenerator {
             }
 
             dayExercises.forEach(exercise => {
-                const executionSteps = exercise.ejecucion ? exercise.ejecucion.map(step => `<li>${step}</li>`).join('') : '';
-                const tips = exercise.consejos ? exercise.consejos.map(tip => `<li>${tip}</li>`).join('') : '';
+                const executionSteps = exercise.ejecucion
+                    ? exercise.ejecucion.map(step => `<li>${step}</li>`).join('')
+                    : '';
+                const tips = exercise.consejos
+                    ? exercise.consejos.map(tip => `<li>${tip}</li>`).join('')
+                    : '';
 
                 plan += `<div class="exercise">
                     <h5>${exercise.nombre}</h5>
@@ -552,7 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
+
         if (!validateForm()) return;
 
         const formData = new FormData(form);
